@@ -3,7 +3,7 @@
 <head>
 	<title>Anonymous Auth</title>
 
-	
+
 <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -15,9 +15,17 @@
   };
   firebase.initializeApp(config);
 </script>
-    
 </head>
+
 <body>
+<p>Sign in anonymously</p>
+<button disabled id="sign-in" name="signin">Sign in</button>
+
+<!-- user details -->
+<div>
+	Firebase sign-in status: <span id="sign-in-status">Unknown</span>
+</div>
+<pre><code id="account-details">null</code></pre>
 
 <script src="main.js"></script>
 </body>
