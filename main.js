@@ -1,5 +1,19 @@
 function toggleSignIn(){
-	console.log('toggle');
+	if(firebase.auth().currentUser){
+		firebase.auth().signOut();
+	} else {
+		firebase.auth().signInAnonymously().catch(function(error){
+			var errorCode = error.code;
+			var errorMessage = error.message;
+
+			if(errorCode === 'auth/operation-not-allowed') {
+				alert('You must enable Anonymous Auth')
+			} else {
+				console.log(error);
+			} 
+		}); //end anonymous	
+	}
+	document.getElementById('sign-in').disabled = true;
 }
 
 function initApp(){
